@@ -1,0 +1,39 @@
+using std::cout;
+using std::endl;
+class Valley
+{
+public:
+    static std::vector<int> makeValley(std::vector<int> &arr)
+    {
+    std::vector<int> myarr(arr.size(),-1);
+    
+    std::sort(arr.begin(),arr.end(),std::greater<int>());
+
+      
+    /////////////////////////////////////////////////////////////////////////////////////////  
+     
+     cout<<"0%2="<<0%2<<endl;
+     cout<<"1%2="<<1%2<<endl;
+     cout<<"2%2="<<2%2<<endl; cout<<"3%2="<<3%2<<endl;
+     
+     ////////////////////////////////////////////////////////////////////////////////////////  
+     
+     int k=0;
+     for(auto i = 0;i<arr.size();i++)
+    {
+    if(i%2 == 0){ myarr.at(k)=arr.at(i);k++;} //если` четное
+    else {myarr.at(arr.size()-k)=arr.at(i);}
+    }
+    
+     ////////////////////////////////////////////////////////////////////////////////////////  
+    
+    
+    
+    
+    
+    
+    return myarr;
+    };
+    
+};
+
