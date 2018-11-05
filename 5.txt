@@ -1,0 +1,47 @@
+#include <string>
+using std::cout;
+using std::endl;
+int knight(std::string start, std::string finish) {
+ 
+ int steps=0;
+ 
+ int sx=(start.at(0)-'a')+1;
+ int sy=(start.at(1)-'0');
+ int fx=(finish.at(0)-'a')+1;
+ int fy=(finish.at(1)-'0');
+ cout<<"start= "<<sx<<":"<<sy<<endl;
+ cout<<"finish= "<<fx<<":"<<fy<<endl;
+ bool odd_f=(fx+fy)%2;//четностьfinal step;   0-четное 1-нечетное
+ cout<<"odd_f= "<<odd_f<<endl;
+ if(sx==fx && sy==fy){cout<<"return="<<0+steps<<endl<<endl;return 0+steps;}
+ start:
+ if((abs(sx-fx) == 1 && abs(sy-fy) == 0)||(abs(sy-fy) == 1 && abs(sx-fx) == 0) ){cout<<"return="<<3+steps<<endl<<endl<<endl;return 3+steps;}//когда рядом но не по диагонали
+ else if(((abs(sx-fx)+abs(sy-fy)) == 2)&& sx!=fy && sx!=fy ){cout<<"return="<<4+steps<<endl<<endl;return 4+steps;}                          //когда рядом по диагонали
+ else if((abs(sx-fx) == 2 && abs(sy-fy) == 0)||(abs(sy-fy) == 2 && abs(sx-fx) == 0) ){cout<<"return="<<2+steps<<endl<<endl;return 2+steps;} //когда по прямой(не диагональ) между 2 кв
+ else if((abs(sx-fx) == 2 && abs(sy-fy) == 1)||(abs(sy-fy) == 2 && abs(sx-fx) == 1) ){cout<<"return="<<1+steps<<endl<<endl;return 1+steps;} //когда остался 1 ход
+ else if((abs(sx-fx) == 2 && abs(sy-fy) == 2)){cout<<"return="<<4+steps<<endl<<endl;return 4+steps;}                                        //когда по диагонали между 1 кв(частный случай от 1+шаг)
+ else if((abs(sx-fx) == 3 && abs(sy-fy) == 1)||(abs(sy-fy) == 3 && abs(sx-fx) == 1) ){cout<<"return="<<2+steps<<endl<<endl;return 2+steps;} // когда можно дойти одной буквой Г, но большая её сторона =4(а не 3)
+ else if((abs(sx-fx) == 3 && abs(sy-fy) == 2)||(abs(sy-fy) == 3 && abs(sx-fx) == 2) ){cout<<"return="<<3+steps<<endl<<endl;return 3+steps;} // когда можно дойти одной буквой Г, c сторонами 2 и 4
+  else if((abs(sx-fx) == 3 && abs(sy-fy) == 0)||(abs(sy-fy) == 3 && abs(sx-fx) == 0) ){cout<<"return="<<3+steps<<endl<<endl;return 3+steps;}// когда на 1 прямой, но между 2 кв
+ else {//else5
+ 
+ if(abs(sx-fx)>abs(sy-fy)){
+                           if((sx-fx)>0)sx-=2;
+                           else sx+=2;
+                           if((sy-fy)>=0)sy-=1; //возможен выход за доску
+                           else sy+=1;
+                           }
+                           
+ else                     {
+                          if((sy-fy)>0)sy-=2;
+                          else sy+=2;
+                          if((sx-fx)>=0)sx-=1; //возможен выход за доску
+                          else sx+=1;
+                         }  
+        cout<<"go to= "<<sx<<":"<<sy<<endl;
+        steps++;
+       goto start;
+     }//else5
+ 
+ cout<<endl<<"return="<<-1;return -1;
+}//end
