@@ -1,9 +1,18 @@
+/*
+https://www.codewars.com/kata/55911ef14065454c75000062
+This is the first part. You can solve the second part here when you are done with this. Multiply two numbers! Simple!
+The arguments are passed as strings.
+The numbers may be way very large
+Answer should be returned as a string
+The returned "number" should not start with zeros e.g. 0123 is invalid
+Note: 100 randomly generated tests!
+*/
 #include <iostream>
+#include <math.h>
 #include <string>
 #include <vector>
 
-
-using namespace std;
+using namespace std; 
 
 int getTryStrLong(string str)
 {
@@ -11,9 +20,7 @@ for(int i=0;i<str.size();++i)if(str.at(i) !='0')return i;
 return 0;
 }
 
-
 string multiply(string a, string b) {
-  
  cout<<"a="<<a<<endl; cout<<"b="<<b<<endl;
  string aa=a.substr(getTryStrLong(a),a.size());
  reverse(aa.begin(), aa.end());
@@ -47,3 +54,10 @@ for (int i = 0; i < length-2; i++)
  
  return str;
 }
+
+ void main() 
+ { 
+ string str= multiply("2","3");
+ cout<<str;
+ 
+ }

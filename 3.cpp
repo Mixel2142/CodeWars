@@ -1,18 +1,28 @@
+/*
+https://www.codewars.com/kata/549ee8b47111a81214000941
+Given two different positions on a chess board, find the least number of moves it would take a knight to get from one to the other. 
+The positions will be passed as two arguments in algebraic notation. For example, knight("a3", "b5") should return 1.
+The knight is not allowed to move off the board. The board is 8x8.
+For information on knight moves, see https://en.wikipedia.org/wiki/Knight_%28chess%29
+For information on algebraic notation, see https://en.wikipedia.org/wiki/Algebraic_notation_%28chess%29
+(Warning: many of the tests were generated randomly. If any do not work, the test cases will return the input, output, and expected output; please post them.)
+*/
+#include <iostream>
+#include <math.h>
 #include <string>
-using std::cout;
-using std::endl;
+#include <vector>
+
+using namespace std; 
+
 int knight(std::string start, std::string finish) {
- 
+
  int steps=0;
- 
  int sx=(start.at(0)-'a')+1;
  int sy=(start.at(1)-'0');
  int fx=(finish.at(0)-'a')+1;
  int fy=(finish.at(1)-'0');
  cout<<"start= "<<sx<<":"<<sy<<endl;
  cout<<"finish= "<<fx<<":"<<fy<<endl;
- bool odd_f=(fx+fy)%2;//четностьfinal step;   0-четное 1-нечетное
- cout<<"odd_f= "<<odd_f<<endl;
  if(sx==fx && sy==fy){cout<<"return="<<0+steps<<endl<<endl;return 0+steps;}
  start:
  if((abs(sx-fx) == 1 && abs(sy-fy) == 0)||(abs(sy-fy) == 1 && abs(sx-fx) == 0) ){cout<<"first_return="<<3+steps<<endl<<endl<<endl;return 3+steps;}//1)когда рядом но не по диагонали
@@ -47,3 +57,9 @@ int knight(std::string start, std::string finish) {
  
  cout<<endl<<"return="<<-1;return -1;
 }//end
+
+
+ void main() 
+ { 
+ cout<< knight("a2","c5");
+ }
