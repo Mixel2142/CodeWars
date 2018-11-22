@@ -39,7 +39,7 @@ string dateNbDays(double a0, double a, double p)
     return str;
 }
 
-void main(int n1,int n2,int n3)
+void main(int argc, char* argv[])
 {
-cout<<endl<<dateNbDays( n1, n2, n3);
+if(argc>3)cout<<endl<<dateNbDays( atoi(argv[1]), atoi(argv[2]), atoi(argv[3]));
 }

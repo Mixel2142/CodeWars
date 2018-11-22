@@ -19,7 +19,7 @@ for(int i=3;i<=sqrt(num);i+=2)if(num%i==0)return false;
 return true;
 }
 
- void main(int a) 
+ void main(int argc, char* argv[]) 
  { 
- cout<<isPrime(a);
+ if(argc>1)cout<<isPrime(atoi(argv[1]));
  }

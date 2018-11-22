@@ -52,14 +52,10 @@ step++;
 }
 cout<<"PriceNewCar="<<n<<endl;
 cout<<"ost="<<(o+save)-n<<endl;
-return{step,round((o+save)-n)};
+int res=round((o+save)-n);
+return{(int)step,res};
 }
-
-void main(string str)
+void main(int argc, char* argv[])
 {
-	int a1=atoi(str.substr(0,str.find(' ')).c_str());
-	int a2=atoi(str.substr(str.find(' '),str.find(2,' ')).c_str());
-	int a3=atoi(str.substr(str.find(2,' '),str.find(3,' ')).c_str());
-	int a4=atoi(str.substr(str.find(3,' '),str.size()).c_str());
-nbMonths(a1,a2,a3,a4);
+if(argc > 4)nbMonths(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]),atof(argv[4]));
 }

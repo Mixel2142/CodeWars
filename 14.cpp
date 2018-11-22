@@ -81,14 +81,14 @@ case 'd': pereves-=2;cout<<-2<<endl;break;
 case 'z': pereves-=1;cout<<-1<<endl;break;
 default : break;
         };
-cout <<"pereves="<<pereves<<endl;
+//cout <<"pereves="<<pereves<<endl;
 }
-cout << pereves<<endl;
-cout <<"//////////////////////////////////////";
+//cout << pereves<<endl;
+//cout <<"//////////////////////////////////////";
 if(pereves == 0)return "Let's fight again!";
 return pereves < 0 ? "Right side wins!" : "Left side wins!";
 }
-void main(string str)
+void main(int argc, char* argv[])
 {
-alphabetWar(str);
+if(argc>1)cout<<alphabetWar(argv[1]);
 }

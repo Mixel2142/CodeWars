@@ -28,7 +28,7 @@ return str;
 return "";
 }
 
- void main() 
+ void main()
  { 
- abbrevName("Harry Potter");
+ cout<<abbrevName("Pepa Moningstar");
  }

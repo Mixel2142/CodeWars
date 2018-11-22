@@ -26,7 +26,6 @@ string multiply(string a, string b) {
  reverse(aa.begin(), aa.end());
  string bb=b.substr(getTryStrLong(b),b.size());
  reverse(bb.begin(), bb.end());
- cout<<"aa="<<aa<<endl; cout<<"bb="<<bb<<endl;
  if(aa.size() == 1&& aa.at(0)=='0')return "0";
  if(bb.size() == 1&& bb.at(0)=='0')return "0";
  int length=aa.length()+bb.length()+1;
@@ -55,9 +54,7 @@ for (int i = 0; i < length-2; i++)
  return str;
 }
 
- void main() 
+ void main(int argc, char* argv[]) 
  { 
- string str= multiply("2","3");
- cout<<str;
- 
+ cout<<multiply("2","12");
  }

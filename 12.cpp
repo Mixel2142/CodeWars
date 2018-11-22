@@ -2,11 +2,14 @@
 https://www.codewars.com/kata/count-ones-in-a-segment/train/cpp
 Given two numbers: 'left' and 'right' (1 <= 'left' <= 'right' <= 200000000000000) return sum of all '1' occurencies in binary representations of numbers between 'left' and 'right' (including both)
 */
+#include <iostream>
 #include <math.h>
 #define C55 0x5555555555555555ULL
 #define C33 0x3333333333333333ULL
 #define C0F 0x0f0f0f0f0f0f0f0fULL
 #define C01 0x0101010101010101ULL
+
+using namespace std;
 
 inline unsigned cppPopcount(unsigned bb)
 {
@@ -77,7 +80,7 @@ rt-=(OBD(rightd)-sumL);
 
 return rt;
 }
-void main() 
+void main(int argc, char* argv[])
  {
-	 countOnes ( 0, 200 );
+	if(argc>2) cout<<countOnes ( atoi(argv[1]), atoi(argv[2]) );
  }

@@ -104,7 +104,7 @@ cout << __func__<<"\t str="<<str<<endl;
 return GetRomanNumber(str);
 }
 
-void main(int nm)
+void main(int argc, char* argv[])
 {
-cout<<endl<<solution(nm);
+if(argc>1)cout<<endl<<solution(atoi(argv[1]));
 }

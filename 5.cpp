@@ -16,25 +16,16 @@ using namespace std;
   
 vector<int> race(int v1, int v2, int g)
 {
-  /* Numerical method
-    if(v1>=v2)return vector<int> {-1,-1,-1};
-     double v2_s=(double)v2/3600.0;
-     double v1_s=(double)v1/3600.0;
-    int sec=0;
-     double rast1=7.0;
-     double rast2=0.0;
-    while(rast1>rast2)
-    {
-    rast1=(v1_s*sec)+g;
-    rast2=v2_s*sec;
-    sec++;
-    }
-   */
-   if(v1>=v2)return vector<int> {-1,-1,-1};
-   int  sec = floor(g/(v2-v1)*3600.0);
-   return vector<int> {sec/3600,(sec%3600)/60,(sec%3600)%60};
+  if(v1>v2)return std::vector<int> {-1,-1,-1};
+    
+    int sec=floor((double)g/(v2-v1)*3600);
+    
+    return {sec/3600,sec%3600/60,sec%3600%60};
 }
  void main() 
  { 
- race(2,10,5);
+ vector<int> rs=race(2,100,50);
+ cout<<rs.at(0)<<"\t";
+ cout<<rs.at(1)<<"\t";
+ cout<<rs.at(2)<<"\t";
  }

@@ -19,7 +19,7 @@ bool isPalindrom (const string& str)
  }
  return true;
 }
- void main() 
+ void main(int argc, char* argv[])
  { 
- isPalindrom ("ama");
+ if(argc>1)cout<<isPalindrom (argv[1]);
  }

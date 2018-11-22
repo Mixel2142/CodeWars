@@ -27,7 +27,7 @@ oss<<bitset<8>(bin.substr(0,8).c_str()).to_ulong()<<"."<<bitset<8>(bin.substr(8,
 return oss.str().c_str();
 }
 
-void main(int n1)
+void main(int argc, char* argv[])
 {
-cout<<uint32_to_ip(n1);
+if(argc>1)cout<<uint32_to_ip(atoi(argv[1]));
 }
