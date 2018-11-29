@@ -17,14 +17,19 @@ using namespace std;
 string abbrevName(string name)
 {
 string str;
+
 if(name.size()>0)
 {
 str=name.substr(0,1)+".";
+
 for(int i=0;i<name.size()-1;i++){if(name.at(i)==' '){str+=name.substr(i+1,1);break;}}
+
 str[0]=toupper(str[0]);
 str[2]=toupper(str[2]);
+
 return str;
-}
+}//if
+
 return "";
 }
 

@@ -16,17 +16,20 @@ using namespace std;
 int solution(int number) 
 {
 cout <<"number="<<number<<endl;
+
 int ret=0;
 bool fl=true;
+
 for(int i=3;i<number;i++)
 {
 cout <<i<<endl;;
 if(i%3==0)ret+=i;
 else if(i%5==0)ret+=i;
-}
+}//for
 
 return ret;
 }
+
  void main() 
  { 
  solution(20); 

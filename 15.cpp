@@ -18,6 +18,7 @@ string GetRomanNumber(const string &strN,int reg=0)
 cout << __func__<<"\t const string &strN="<<strN<<endl;
 cout << __func__<<"\t reg="<<reg<<endl;
 string str="";
+
 if(strN.at(reg) == '4'){
 cout<<"switch1:"<<endl;
 switch(strN.size()-(reg))
@@ -31,6 +32,7 @@ break;
 default : str.append("1");
 };
                       }
+					  
 else if(strN.at(reg) == '9'){
 cout<<"switch2:"<<endl;
 switch(strN.size()-(reg))
@@ -44,9 +46,12 @@ break;
 default : str.append("2");
 };
                           }
+						  
 else{
+	
 int regN = (strN.at(reg)-'0');
 cout << __func__<<"\t regN="<<regN<<endl;
+
 if(regN-5 >= 0 ){
 cout<<"switch3:"<<endl;
 switch(strN.size()-(reg))
@@ -74,6 +79,7 @@ break;
 default: str.append("4");
 };}
                 }// regN-5 >= 0 
+				
 else{
 for(unsigned i=0;i<regN;i++){
 cout<<"switch5:"<<endl;
@@ -88,19 +94,25 @@ break;
 case 4:str.append("M");
 break;
 default: str.append("5");
-};  }
-    }
-}
+};  
+							}//for
+    }//else
+		
+	}//else
+		
 cout << __func__<<"\t str="<<str<<endl;
-return strN.size() != reg+1 ? str+GetRomanNumber(strN,reg+1) : str;
+
+return strN.size() != reg+1 ? str + GetRomanNumber(strN,reg+1) : str;
 }
 
 string solution(int number){
+	
 cout <<" 1 : I"<<"\t 5 : V"<<"\n 10 : X"<<"\t 50 : L"<<"\n 100 : C"<<"  500 : D"<<"\n 1000 : M"<<endl<<endl;
-
 cout << __func__<<"\t number="<<number<<endl;
+
 string str=to_string(number);
 cout << __func__<<"\t str="<<str<<endl;
+
 return GetRomanNumber(str);
 }
 

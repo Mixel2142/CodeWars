@@ -24,6 +24,7 @@ inline long long OBD(int& degree)
 return degree*(pow(2,degree)/2)-((pow(2,degree)/4)*(degree-1));
 }
 
+
 long long countOnes ( int left, int right )
 {
 long long rt=0;
@@ -32,21 +33,18 @@ int leftd=1;
 int rightb=2;
 int rightd=1;
 
-while(leftb <left){leftb*=2;leftd++;}
-while(rightb <right){rightb*=2;rightd++;}
-
-
-
+while(leftb < left)		{leftb*=2;leftd++;}
+while(rightb < right)	{rightb*=2;rightd++;}
 
 if(right-left <10000)
 {
 for(unsigned i=left;i<=right;i++)
 rt+=cppPopcount(i);
 return rt;
-}
+}//if
 
 for(int i=leftd;i<=rightd;i++)rt+=OBD(i);// посчитали общую сумму в этих степенных блоках
-//{
+
 int sumL=8;
 int sravn=4;
 int countL=2;
@@ -61,10 +59,11 @@ if(left-pow(2,leftd-1) == 1)rt--;
 else if(left-pow(2,leftd-1) != 0)rt-=sumL;
 for(unsigned i=(leftb/2) + (sravn/2);i<left;i++)rt-=cppPopcount(i);//cout <<"-cppPopcount(i)="<<cppPopcount(i)<<endl;}
 /////////////////////////////////////////////////////////////} вычитаем лишнее слево
-//{
+
  sumL=8;
  sravn=4;
  countL=2;
+ 
 while((rightb/2) + sravn <= right)
 {
 sumL+=(OBD(++countL)+pow(2,--countL));
@@ -77,9 +76,9 @@ for(unsigned i=(rightb/2) + (sravn/2);i<=right;i++)sumL+=cppPopcount(i);
 rt-=(OBD(rightd)-sumL);
 //} вычитаем лишнее справо
 
-
 return rt;
 }
+
 void main(int argc, char* argv[])
  {
 	if(argc>2) cout<<countOnes ( atoi(argv[1]), atoi(argv[2]) );

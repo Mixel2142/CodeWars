@@ -23,7 +23,9 @@ string uint32_to_ip(uint32_t ip)
 {
 string bin = bitset<32>(ip).to_string(); 
 ostringstream oss;
+
 oss<<bitset<8>(bin.substr(0,8).c_str()).to_ulong()<<"."<<bitset<8>(bin.substr(8,16).c_str()).to_ulong()<<"."<<bitset<8>(bin.substr(16,24).c_str()).to_ulong()<<"."<<bitset<8>(bin.substr(24,32).c_str()).to_ulong();
+
 return oss.str().c_str();
 }
 

@@ -18,15 +18,17 @@ using namespace std;
 vector<int> makeValley(vector<int> &arr)
     {
 		
-    vector<int> myarr(arr.size(),-1);
-    sort(arr.begin(),arr.end(),greater<int>());
-    int k=0;
-     for(auto i = 0;i<arr.size();i++)
-    {
-    if(i%2 == 0){ myarr.at(k)=arr.at(i);k++;} //если` четное
-    else {myarr.at(arr.size()-k)=arr.at(i);}
-    }
-    return myarr;
+vector<int> myarr(arr.size(),-1);
+int k=0;
+
+sort(arr.begin(),arr.end(),greater<int>());
+
+for(auto i = 0;i<arr.size();i++)
+{
+if(i%2 == 0){ myarr.at(k)=arr.at(i);k++;} //если` четное
+else {myarr.at(arr.size()-k)=arr.at(i);}
+}
+return myarr;
     }
 
 

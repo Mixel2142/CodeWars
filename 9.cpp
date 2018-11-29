@@ -12,13 +12,16 @@ using namespace std;
 
 bool isPalindrom (const string& str)
 {
- if(str.size()<=1)return true;
+ if(str.size() <= 1)return true;
+
  for(int i =0; i< str.length()/2; i++)
  {
  if(toupper(str.at(str.length()-1-i)) != toupper(str.at(i)))return false;
  }
+
  return true;
 }
+
  void main(int argc, char* argv[])
  { 
  if(argc>1)cout<<isPalindrom (argv[1]);

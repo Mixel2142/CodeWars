@@ -39,22 +39,31 @@ double p=percentLossByMonth/100.0;
 
 unsigned step=0;
 bool fl=false;
+
 while(step != 1000)
 {
+	
 if(o+save >= n)break;
-if(fl){p+=0.005;fl=false;}
+
+if(fl){	p+=0.005;	fl=false; }
 else fl=true;
+
 n-=n*p;
 o-=o*p;
 save+=savingperMonth;
 step++;
 
 }
+
 cout<<"PriceNewCar="<<n<<endl;
 cout<<"ost="<<(o+save)-n<<endl;
+
 int res=round((o+save)-n);
+
 return{(int)step,res};
 }
+
+
 void main(int argc, char* argv[])
 {
 if(argc > 4)nbMonths(atoi(argv[1]),atoi(argv[2]),atoi(argv[3]),atof(argv[4]));

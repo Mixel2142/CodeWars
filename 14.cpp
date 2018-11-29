@@ -28,17 +28,15 @@ AlphabetWar("zzzz*s*");       //=> R
 #include <vector>
 #include <algorithm>
 #include <functional>  
-using namespace std;
-#include <string>
-using namespace std;
 
-#include <string>
 using namespace std;
 
 string alphabetWar(string fight)
 { 
+
 string fightM = fight;
 cout <<"OLD STR:"<<fight<<endl;
+
 if(fight.size() >1)
 for(unsigned i = 0; i < fightM.size();i++)
 {
@@ -54,9 +52,9 @@ if(i == fightM.size()-1)
   {
 fightM.at(i-1)='=';break;
   }
-  
- if(fightM.at(i+1) != '*')fightM.at(i+1)='=';
- fightM.at(i-1)='=';
+if(fightM.at(i+1) != '*')fightM.at(i+1)='=';
+
+fightM.at(i-1)='=';
 
 }
 
@@ -88,6 +86,8 @@ default : break;
 if(pereves == 0)return "Let's fight again!";
 return pereves < 0 ? "Right side wins!" : "Left side wins!";
 }
+
+
 void main(int argc, char* argv[])
 {
 if(argc>1)cout<<alphabetWar(argv[1]);

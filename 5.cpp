@@ -16,12 +16,13 @@ using namespace std;
   
 vector<int> race(int v1, int v2, int g)
 {
-  if(v1>v2)return std::vector<int> {-1,-1,-1};
+  if(v1>v2) return std::vector<int> {-1,-1,-1};
     
-    int sec=floor((double)g/(v2-v1)*3600);
+  int sec=floor((double)g/(v2-v1)*3600);
     
-    return {sec/3600,sec%3600/60,sec%3600%60};
+  return {sec/3600,sec%3600/60,sec%3600%60};
 }
+
  void main() 
  { 
  vector<int> rs=race(2,100,50);

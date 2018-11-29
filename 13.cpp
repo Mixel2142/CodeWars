@@ -18,6 +18,7 @@ string alphabetWar(string fight)
 {
 
 int pereves=0;
+
 for(auto &it :fight)
 {
 switch(it)

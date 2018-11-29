@@ -11,11 +11,15 @@ Per Wikipedia, a prime number (or a prime) is a natural number greater than 1 th
 using namespace std; 
 
 bool isPrime(int num) {
-std::cout<<num<<std::endl;
+	
+cout<<num<<endl;
+
 if(num<=1)return false;
-if(num == 2 || num == 3 ||num == 5 ||num == 7 )return true;
+if(num == 2 || num == 3 || num == 5 || num == 7 )return true;
 if(num%2==0)return false;
-for(int i=3;i<=sqrt(num);i+=2)if(num%i==0)return false;
+
+for(int i=3; i <= sqrt(num); i+=2)	if(num%i == 0)return false;
+
 return true;
 }
 

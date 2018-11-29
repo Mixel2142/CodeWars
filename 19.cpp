@@ -26,7 +26,7 @@ using namespace std;
 class BestTravel
 {
 public:
-    static int chooseBestSum(int t, int k, std::vector<int>& ls)
+    static int chooseBestSum(int t, int k, std::vector<int> &ls)
     {
     ls.clear();
     static unsigned n=0;
@@ -67,6 +67,7 @@ public:
     }
 
 };
+
 void main(int argc, char* argv[])
 {
 cout<<"Broken kata.";

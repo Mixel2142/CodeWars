@@ -27,15 +27,17 @@ NOTE 2: The 0x0 (empty matrix) is represented as [[]]
 using namespace std;
 
 vector<int> snail(vector<vector<int>> array) {
+	
 vector<int>::size_type arsz = array.size()*array.at(0).size();
-if(arsz>0){
+
+if(arsz > 0){
 cout<<"width="<<array.size()<<" height="<<array.at(0).size()<<endl;
+
 for(auto j=0;j<array.size();j++)
 {
-for(auto i=0;i<array.at(j).size();i++)
-{
-cout<<"\t"<<array.at(j).at(i);
-}
+	
+for(auto i=0;i<array.at(j).size();i++)	cout<<"\t"<<array.at(j).at(i);
+									  
 cout<<endl;
 }
 
@@ -44,22 +46,30 @@ vector<int>::size_type count=0;
 cout<<"arsz="<<arsz<<endl;
 
 while(snlrt.size()<arsz){
+	
 for(auto It=count;It <array.size()-count ; It++)//горизонталь верхняя
 snlrt.push_back(array.at(count).at(It));
-if(snlrt.size()>=arsz)break;
+
+if(snlrt.size()>= arsz)break;
+
 for(auto It=count;It <array.size()-count-1; It++)///вертикаль правая
 snlrt.push_back(array.at(It+1).at(array.size()-count-1));
+
 if(snlrt.size()>=arsz)break;
+
 for(auto It=count+1;It <array.size()-count; It++)///горизонталь нижняя
 snlrt.push_back(array.at(array.size()-count-1).at(array.size()-It-1));
+
 if(snlrt.size()>=arsz)break;
 for(auto It=count+2;It <array.size()-count ; It++)//вертикаль левая
+
 snlrt.push_back(array.at(array.size()-It).at(count));
 count++;
+
 }
 
 return snlrt;
-}
+			}//if
 return {};
 }
 

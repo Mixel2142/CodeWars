@@ -29,15 +29,18 @@ using namespace std;
 
 long long rectangle_rotation(double a, double b)
 {
+	
 const double diag=1.414213;
-
 cout<<a<<" "<<b<<endl;
+
 int pointsA =( a/diag < 0.707106 ? (int)(a/diag) : (int)(a/diag)+1);
 cout<<"pointsA="<<pointsA<<endl;
+
 int pointsB =( b/diag < 0.707106 ? (int)(b/diag) : (int)(b/diag)+1);
 cout<<"pointsB="<<pointsB<<endl;
-  if(pointsB%2 == pointsA%2)return pointsA*pointsB+(pointsA-1)*(pointsB-1);
-  else return pointsA*pointsB+(pointsA-1)*(pointsB-1)-1;
+
+if(pointsB%2 == pointsA%2)	return pointsA*pointsB+(pointsA-1)*(pointsB-1);
+else return pointsA*pointsB+(pointsA-1)*(pointsB-1)-1;
 }
 
 void main(int argc, char* argv[])
