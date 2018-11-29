@@ -27,16 +27,57 @@ int knight(string start, string finish) {
  
  if(sx == fx && sy == fy){	cout<<"return="<<0+steps<<endl<<endl;	return 0+steps;}
  start:
- if((abs(sx-fx) == 1 && abs(sy-fy) == 0)||(abs(sy-fy) == 1 && abs(sx-fx) == 0) ){cout<<"first_return="<<3+steps<<endl<<endl<<endl;return 3+steps;}//1)когда рядом но не по диагонали
- else if(((abs(sx-fx)+abs(sy-fy)) == 2)&& sx!=fx && sy!=fy && (((sx==1 && sy==1) || (sx==1 && sy==8) || (sx==8 && sy==1) || (sx==8 && sy==8))||((fx==1 && fy==1) || (fx==1 && fy==8) || (fx==8 && fy==1) || (fx==8 && fy==8)))){cout<<"second_return="<<4+steps<<endl<<endl;return 4+steps;}//2)когда рядом по диагонали и конь в углу или финал в углу
- else if((abs(sx-fx) == 2 && abs(sy-fy) == 0)||(abs(sy-fy) == 2 && abs(sx-fx) == 0) ){cout<<"third_return="<<2+steps<<endl<<endl;return 2+steps;} //3)когда по прямой(не диагональ) между 2 кв
- else if((abs(sx-fx) == 2 && abs(sy-fy) == 1)||(abs(sy-fy) == 2 && abs(sx-fx) == 1) ){cout<<"fourth_return="<<1+steps<<endl<<endl;return 1+steps;}//4)когда остался 1 ход
- else if((abs(sx-fx) == 2 && abs(sy-fy) == 2)  && steps == 0 ){cout<<"fifth_return="<<4+steps<<endl<<endl;return 4+steps;}                                        //5)когда по диагонали между 1 кв(частный случай от 1+шаг)
- else if((abs(sx-fx) == 3 && abs(sy-fy) == 1)||(abs(sy-fy) == 3 && abs(sx-fx) == 1) ){cout<<"sixth_return="<<2+steps<<endl<<endl;return 2+steps;} //6)когда можно дойти одной буквой Г, но большая её сторона =4(а не 3)
- else if((abs(sx-fx) == 3 && abs(sy-fy) == 2)||(abs(sy-fy) == 3 && abs(sx-fx) == 2) ){cout<<"seventh_return="<<3+steps<<endl<<endl;return 3+steps;}//7) когда можно дойти одной буквой Г, c сторонами 2 и 4
- else if((abs(sx-fx) == 3 && abs(sy-fy) == 0)||(abs(sy-fy) == 3 && abs(sx-fx) == 0) ){cout<<"eighth_return="<<3+steps<<endl<<endl;return 3+steps;}//8)когда на 1 прямой, но между 2 кв
- else if((abs(sx-fx) == 2 && abs(sy-fy) == 2)  && steps >= 1){cout<<"ninth_return="<<2+steps<<endl<<endl;return 2+steps;}                          //9)когда из-за последнего шага полуичлось по диагонали между 1 кв? но его не нужно было туда делать
- else if(((abs(sx-fx)+abs(sy-fy)) == 2)&& sx != fx && sy != fy ){cout<<"tenth_return="<<2+steps<<endl<<endl;return 2+steps;}                          //10)когда рядом по диагонали и конь не в углу и финал не в углу
+ 
+ if((abs(sx-fx) == 1 && abs(sy-fy) == 0)||(abs(sy-fy) == 1 && abs(sx-fx) == 0) ){
+ cout<<"first_return="<<3+steps<<endl<<endl<<endl;
+ return 3+steps;
+}//1)когда рядом но не по диагонали
+ 
+ else if(((abs(sx-fx)+abs(sy-fy)) == 2)&& sx!=fx && sy!=fy && (((sx==1 && sy==1) || (sx==1 && sy==8) || (sx==8 && sy==1) || (sx==8 && sy==8))||((fx==1 && fy==1) || (fx==1 && fy==8) || (fx==8 && fy==1) || (fx==8 && fy==8)))){
+	 cout<<"second_return="<<4+steps<<endl<<endl;
+	 return 4+steps;
+	 }//2)когда рядом по диагонали и конь в углу или финал в углу
+ 
+ else if((abs(sx-fx) == 2 && abs(sy-fy) == 0)||(abs(sy-fy) == 2 && abs(sx-fx) == 0) ){
+	 cout<<"third_return="<<2+steps<<endl<<endl;
+	 return 2+steps;
+	 } //3)когда по прямой(не диагональ) между 2 кв
+ 
+ else if((abs(sx-fx) == 2 && abs(sy-fy) == 1)||(abs(sy-fy) == 2 && abs(sx-fx) == 1) ){
+	 cout<<"fourth_return="<<1+steps<<endl<<endl;
+	 return 1+steps;
+	 }//4)когда остался 1 ход
+ 
+ else if((abs(sx-fx) == 2 && abs(sy-fy) == 2)  && steps == 0 ){
+	 cout<<"fifth_return="<<4+steps<<endl<<endl;
+	 return 4+steps;
+	 }//5)когда по диагонали между 1 кв(частный случай от 1+шаг)
+ 
+ else if((abs(sx-fx) == 3 && abs(sy-fy) == 1)||(abs(sy-fy) == 3 && abs(sx-fx) == 1) ){
+	 cout<<"sixth_return="<<2+steps<<endl<<endl;
+	 return 2+steps;
+	 } //6)когда можно дойти одной буквой Г, но большая её сторона =4(а не 3)
+ 
+ else if((abs(sx-fx) == 3 && abs(sy-fy) == 2)||(abs(sy-fy) == 3 && abs(sx-fx) == 2) ){
+	 cout<<"seventh_return="<<3+steps<<endl<<endl;
+	 return 3+steps;
+	 }//7) когда можно дойти одной буквой Г, c сторонами 2 и 4
+ 
+ else if((abs(sx-fx) == 3 && abs(sy-fy) == 0)||(abs(sy-fy) == 3 && abs(sx-fx) == 0) ){
+	 cout<<"eighth_return="<<3+steps<<endl<<endl;
+	 return 3+steps;
+	 }//8)когда на 1 прямой, но между 2 кв
+ 
+ else if((abs(sx-fx) == 2 && abs(sy-fy) == 2)  && steps >= 1){
+	 cout<<"ninth_return="<<2+steps<<endl<<endl;
+	 return 2+steps;
+	 }//9)когда из-за последнего шага полуичлось по диагонали между 1 кв? но его не нужно было туда делать
+ 
+ else if(((abs(sx-fx)+abs(sy-fy)) == 2)&& sx != fx && sy != fy ){
+	 cout<<"tenth_return="<<2+steps<<endl<<endl;
+	 return 2+steps;
+	 }//10)когда рядом по диагонали и конь не в углу и финал не в углу
+ 
  else {//else5
  
  if(abs(sx-fx) > abs(sy-fy)){
@@ -44,8 +85,7 @@ int knight(string start, string finish) {
 	 else sx+=2;
 	 if((sy-fy)>=0)sy-=1; //возможен выход за доску
 	 else sy+=1;
-                           }
-                           
+                            }           
  else{
 	 if((sy-fy)>0)sy-=2;
 	 else sy+=2;
@@ -54,10 +94,9 @@ int knight(string start, string finish) {
      }
 	 
 cout<<"go to= "<<sx<<":"<<sy<<endl;
-
 steps++;
-
 goto start;
+
      }//else5
  
 cout<<endl<<"return="<<-1;return -1;
