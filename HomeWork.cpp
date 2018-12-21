@@ -2,31 +2,36 @@
 
 using namespace std;
 
-typedef bool ( *Vd_funPtr_chPtr )( char* );
+typedef void ( *VoidFunPtr )( char* );
 
-bool ToLower( char* ch)
+void ToLower( char* ch)
 {
 	if((int)*ch >= 65 && (int)*ch <= 90)(*ch)+=32;
 	//if((int)ch >= 192 && (int)ch <= 223)ch+=31;
-	return *ch != '\0';
+	//return *ch != '\0';
 }
 
-bool ToUpper( char* ch)
+void ToUpper( char* ch)
 {
 	if((int)*ch >= 97 && (int)*ch <= 122)(*ch)-=32;
 	//if((int)ch >= 223 && (int)ch <= 254)ch-=31;
-	return *ch != '\0';
+	//return *ch != '\0';
 }
 
-char* ChangeStr( char* str, Vd_funPtr_chPtr fun1, Vd_funPtr_chPtr fun2 )
+char* ChangeStr( char* str, VoidFunPtr fun1, VoidFunPtr fun2 )
 {
-	while ( fun1(str++) && fun2(str++) );
+	
+	while ( *str != '\0')
+	{
+		fun1(str++);
+		fun2(str++);
+	}
 	return str;
 }
 
 int main(int argc, char* argv[])
 { 
-	if(argc>1)
+	if( argc > 1 )
 	{
 		cout << ChangeStr( argv[1], ToLower, ToUpper ) << endl;
 		cout << argv[1];
